@@ -1,12 +1,19 @@
 @import "tailwindcss";
 
+/* Theme tokens (light) based on request */
 :root {
-  --color-primary: #000000;
-  --color-secondary: #FFFFFF;
-  --color-accent: #3B82F6;
-  --color-background: #FFFFFF;
+  --color-primary: #2563eb; /* blue-600 */
+  --color-secondary: #64748b; /* slate-500 */
+  --color-accent: #fbbf24; /* amber-400 */
+  --color-bg: #ffffff;
+  --color-fg: #0f172a; /* slate-900 */
+  --color-muted: #f8fafc; /* slate-50 */
+  --color-card: #ffffff;
+  --color-border: #e5e7eb; /* gray-200 */
+  --ring: 0 0% 0%;
 }
 
+/* Resets */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -17,10 +24,95 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+}
+
+/* Inputs and buttons */
+input[type="text"],
+textarea,
+select {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-fg);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+button {
+  border: 1px solid transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  color: #0b0b0b;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-fg);
+}
+
+.btn-ghost:hover {
+  background: var(--color-muted);
+}
+
+.input {
+  width: 100%;
+}
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  background: var(--color-muted);
+  color: var(--color-secondary);
 }
